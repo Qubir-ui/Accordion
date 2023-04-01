@@ -1,1 +1,1 @@
-Accordion page url - https://qubir-ui.github.io/Accordion/
+Accordion with content from MySql
