@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/animation.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body class="font-lato p-6 md:p-12 lg:pt-[91px] lg:px-[103px] xl:pr-80">
+<div class="flex flex-col lg:flex-row w-full">
+    <div class="flex-col w-full xl:w-[400px] lg:mr-[75px]">
+        <h1 class="font-normal text-xl md:text-[34px] md:leading-10 text-[#283F75] mb-3 md:mb-[34px] w-full">На что
+            рассчитывать при
+            взыскании неустойки
+            по ДДУ?</h1>
+        <p class="mb-5 text-base w-full text-[#5B5B5B]">Когда застройщик нарушает сроки сдачи по ДДУ, вы как дольщик
+            имеете право требовать
+            неустойку за просрочку, а также компенсацию убытков, вызванных этой просрочкой.</p>
+        <p class="mb-5 text-base w-full text-[#5B5B5B]">Само собой, застройщику невыгодно добровольно выплачивать вам
+            компенсацию. Когда
+            дело доходит до суда, суд урезает сумму неустойки на основании ст. 333 ГК РФ. Это урезание практически
+            неизбежно.</p>
+        <p class="mb-5 text-base w-full text-[#5B5B5B]">Основная наша задача состоит в том, чтобы взыскать неустойку по
+            ДДУ в максимальном
+            размере, т.е. избежать сильного ее урезания. Вот что вы можете требовать от застройщика.</p>
+    </div>
+    <div class="flex-col w-full xl:w-[466px] 2xl:w-[900px]" id="accordion">
+        <div class="mt-5 border border-[#C6CDDA] bg-white overflow-hidden">
+            <button
+                    aria-controls="n1"
+                    aria-expanded="false"
+                    class="group relative flex w-full items-center border-0 bg-white py-4 px-5 text-left font-bold text-sm md:text-base text-[#283F75] transition [overflow-anchor:none] focus:outline-none active:border-[#C6CDDA]"
+                    data-te-collapse-init
+                    data-te-target="#n1"
+                    type="button">
+                Компенсация убытков по ипотеке
+                <span class="ml-auto flex items-center justify-center h-2.5 w-2.5"
+                      id="arrow">
+                    <img src="img/arrow.svg">
+                </span>
+            </button>
+        </div>
+        <div
+                class="!visible hidden mt-1 border border-black[#E6E9F0] rounded-b-lg"
+                data-te-collapse-item
+                id="n1">
+            <div class="pt-5 px-6 pb-2.5 text-[#34539A]">
+                Вот почему вам следует сосредоточиться на тестировании кампаний, прежде чем делиться ими с
+                пользователями. В противном случае человек может увидеть ваше письмо обрезанным, со смещенным
+                макетом, не отвечающим на запросы или неподдерживаемым содержанием. В результате плохой UX
+                гарантирован, и есть большая вероятность, что клиенты не вернутся.
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/script.js"></script>
+<script src="./node_modules/tw-elements/dist/js/index.min.js"></script>
+</body>
+</html>
