@@ -1,1 +1,1 @@
-Accordion with content from MySql
+Accordion with content from MySQL
