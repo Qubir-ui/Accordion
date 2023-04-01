@@ -6,12 +6,11 @@
           name="viewport">
     <meta content="ie=edge" http-equiv="X-UA-Compatible">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/animation.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Аккордеон</title>
 </head>
 <body class="font-lato p-6 md:p-12 lg:pt-[91px] lg:px-[103px] xl:pr-80">
-<div class="flex flex-col lg:flex-row w-full">
-    <div class="flex-col w-full xl:w-[400px] lg:mr-[75px]">
+<div class="flex flex-col md:flex-row w-full">
+    <div class="flex-col w-full xl:w-[400px] md:mr-[75px]">
         <h1 class="font-normal text-xl md:text-[34px] md:leading-10 text-[#283F75] mb-3 md:mb-[34px] w-full">На что
             рассчитывать при
             взыскании неустойки
@@ -28,25 +27,99 @@
             размере, т.е. избежать сильного ее урезания. Вот что вы можете требовать от застройщика.</p>
     </div>
     <div class="flex-col w-full xl:w-[466px] 2xl:w-[900px]" id="accordion">
-        <div class="mt-5 border border-[#C6CDDA] bg-white overflow-hidden">
-            <button
+        <div class="first:mt-0 mt-5 relative border border-[#C6CDDA] bg-white overflow-hidden flex items-center h-[60px]">
+            <input
                     aria-controls="n1"
-                    aria-expanded="false"
-                    class="group relative flex w-full items-center border-0 bg-white py-4 px-5 text-left font-bold text-sm md:text-base text-[#283F75] transition [overflow-anchor:none] focus:outline-none active:border-[#C6CDDA]"
+                    aria-expanded="true"
+                    class="group peer w-full h-[60px] border-0 bg-white transition [overflow-anchor:none] focus:outline-none active:border-[#C6CDDA] hidden"
                     data-te-collapse-init
                     data-te-target="#n1"
-                    type="button">
-                Компенсация убытков по ипотеке
-                <span class="ml-auto flex items-center justify-center h-2.5 w-2.5"
-                      id="arrow">
-                    <img src="img/arrow.svg">
+                    id="l1"
+                    type="checkbox">
+            <label class="cursor-pointer absolute z-50 w-full h-full flex items-center pl-7 pr-10 font-bold text-sm md:text-base text-[#283F75]"
+                   for="l1">Компенсация расходов по аренде жилья</label>
+            <span class="ml-auto flex">
+                <span class="hidden 1_xl:flex items-center justify-center ml-auto mr-5 1_xl:mr-10 text-[#283F75] gap-1">
+                    <img alt="star" src="img/star.svg">
+                    4
                 </span>
-            </button>
+            </span>
+            <span class="mr-7 flex items-center justify-center h-2.5 w-2.5 rotate-0 peer-checked:rotate-180 duration-200">
+                <img alt="arrow" src="img/arrow.svg">
+            </span>
         </div>
         <div
-                class="!visible hidden mt-1 border border-black[#E6E9F0] rounded-b-lg"
+                class="!visible hidden mt-[3px]ease-out duration-200 border border-black[#E6E9F0] rounded-b-lg"
                 data-te-collapse-item
+                data-te-parent="#accordion"
                 id="n1">
+            <div class="pt-5 px-6 pb-2.5 text-[#34539A]">
+                Вот почему вам следует сосредоточиться на тестировании кампаний, прежде чем делиться ими с
+                пользователями. В противном случае человек может увидеть ваше письмо обрезанным, со смещенным
+                макетом, не отвечающим на запросы или неподдерживаемым содержанием. В результате плохой UX
+                гарантирован, и есть большая вероятность, что клиенты не вернутся.
+            </div>
+        </div>
+
+        <div class="first:mt-0 mt-5 relative border border-[#C6CDDA] bg-white overflow-hidden flex items-center h-[60px]">
+            <input
+                    aria-controls="n2"
+                    aria-expanded="true"
+                    class="group peer w-full h-[60px] border-0 bg-white transition [overflow-anchor:none] focus:outline-none active:border-[#C6CDDA] hidden"
+                    data-te-collapse-init
+                    data-te-target="#n2"
+                    id="l2"
+                    type="checkbox">
+            <label class="cursor-pointer absolute z-50 w-full h-full flex items-center pl-7 pr-10 font-bold text-sm md:text-base text-[#283F75]"
+                   for="l2">Компенсация расходов по аренде жилья</label>
+            <span class="ml-auto flex">
+                <span class="hidden 1_xl:flex items-center justify-center ml-auto mr-5 1_xl:mr-10 text-[#283F75] gap-1">
+                    <img alt="star" src="img/star.svg">
+                    4
+                </span>
+            </span>
+            <span class="mr-7 flex items-center justify-center h-2.5 w-2.5 peer-checked:rotate-180 duration-200">
+                <img alt="arrow" src="img/arrow.svg">
+            </span>
+        </div>
+        <div
+                class="!visible hidden mt-[3px]ease-out duration-200 border border-black[#E6E9F0] rounded-b-lg"
+                data-te-collapse-item
+                data-te-parent="#accordion"
+                id="n2">
+            <div class="pt-5 px-6 pb-2.5 text-[#34539A]">
+                Вот почему вам следует сосредоточиться на тестировании кампаний, прежде чем делиться ими с
+                пользователями. В противном случае человек может увидеть ваше письмо обрезанным, со смещенным
+                макетом, не отвечающим на запросы или неподдерживаемым содержанием. В результате плохой UX
+                гарантирован, и есть большая вероятность, что клиенты не вернутся.
+            </div>
+        </div>
+        <div class="first:mt-0 mt-5 relative border border-[#C6CDDA] bg-white overflow-hidden flex items-center h-[60px]">
+            <input
+                    aria-controls="n3"
+                    aria-expanded="true"
+                    class="group peer w-full h-[60px] border-0 bg-white transition [overflow-anchor:none] focus:outline-none active:border-[#C6CDDA] hidden"
+                    data-te-collapse-init
+                    data-te-target="#n3"
+                    id="l3"
+                    type="checkbox">
+            <label class="cursor-pointer absolute z-50 w-full h-full flex items-center pl-7 pr-10 font-bold text-sm md:text-base text-[#283F75]"
+                   for="l3">Компенсация расходов по аренде жилья</label>
+            <span class="ml-auto flex">
+                <span class="hidden 1_xl:flex items-center justify-center ml-auto mr-5 1_xl:mr-10 text-[#283F75] gap-1">
+                    <img alt="star" src="img/star.svg">
+                    4
+                </span>
+            </span>
+            <span class="mr-7 flex items-center justify-center h-2.5 w-2.5 peer-checked:rotate-180 duration-200">
+                <img alt="arrow" src="img/arrow.svg">
+            </span>
+        </div>
+        <div
+                class="!visible hidden mt-[3px]ease-out duration-200 border border-black[#E6E9F0] rounded-b-lg"
+                data-te-collapse-item
+                data-te-parent="#accordion"
+                id="n3">
             <div class="pt-5 px-6 pb-2.5 text-[#34539A]">
                 Вот почему вам следует сосредоточиться на тестировании кампаний, прежде чем делиться ими с
                 пользователями. В противном случае человек может увидеть ваше письмо обрезанным, со смещенным

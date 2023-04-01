@@ -3,6 +3,9 @@ module.exports = {
     content: ["./index.html", "./node_modules/tw-elements/dist/js/**/*.js"],
     theme: {
         extend: {
+            screens: {
+                '1_xl': '1360px',
+            },
             fontFamily: {
                 lato: ['Lato']
             },
