@@ -10,7 +10,6 @@ const response = async (incomeUrl) => {
 }
 
 const accordionGenerator = (el) => {
-    const accordion = document.querySelector("#accordion")
     let rating = `
         <span class="hidden 1_xl:flex items-center justify-center ml-auto mr-5 1_xl:mr-10 text-[#283F75] gap-1">
             <img alt="star" src="img/star.svg">
@@ -52,16 +51,20 @@ const accordionGenerator = (el) => {
 const getData = async (incomeUrl) => {
     const data = await response(incomeUrl)
     const sortData = data.sort((prev, next) => next.rating - prev.rating)
+    const accordion = document.querySelector("#accordion")
+    accordion.innerHTML = ""
     sortData.forEach((el) => {
         accordionGenerator(el)
     })
 
     const arrows = document.querySelectorAll(".arrow")
     const accordionElement = document.querySelectorAll("#accordion .group-wrapper")
-
     accordionElement.forEach((el) => {
         el.addEventListener("click", (e) => {
             const isOpen = el.children[0].getAttribute("aria-expanded") === "true"
+            accordionElement.forEach((el) => {
+                el.style.border = "1px solid #C6CDDA"
+            })
             el.style.border = `1px solid ${isOpen ? "#636C7C" : "#C6CDDA"}`
             arrows.forEach((arrow) => {
                 const shouldRotate = isOpen && (arrow === el.childNodes[5].childNodes[2].nextSibling || arrow === el.childNodes[5].childNodes[1])
@@ -72,3 +75,4 @@ const getData = async (incomeUrl) => {
 }
 
 getData(url)
+setInterval(getData, 5000, url)
