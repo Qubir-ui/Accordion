@@ -1,7 +1,4 @@
 const url = "src/data.php"
-const arrows = document.querySelectorAll(".arrow")
-const accordion = document.querySelector("#accordion")
-const accordionElement = document.querySelectorAll("#accordion .group-wrapper")
 
 const response = async (incomeUrl) => {
     try {
@@ -12,7 +9,8 @@ const response = async (incomeUrl) => {
     }
 }
 
-const accordionGenerator = (el) =>{
+const accordionGenerator = (el) => {
+    const accordion = document.querySelector("#accordion")
     let rating = `
         <span class="hidden 1_xl:flex items-center justify-center ml-auto mr-5 1_xl:mr-10 text-[#283F75] gap-1">
             <img alt="star" src="img/star.svg">
@@ -33,7 +31,7 @@ const accordionGenerator = (el) =>{
             <label class="cursor-pointer absolute z-50 w-full h-full flex items-center pl-7 pr-10 font-bold text-sm md:text-base text-[#283F75]"
                    for="l${el.id}">${el.title}</label>
             <span class="ml-auto flex items-center">            
-                ${ (el.rating !== null && el.rating !== 0)  ? rating : ''} 
+                ${(el.rating !== null && el.rating !== 0) ? rating : ''} 
                 <span class="arrow mr-7 flex items-center justify-center h-2.5 w-2.5  duration-200 rotate-0 peer-checked:180">  
                     <img alt="arrow" src="img/arrow.svg">
                 </span>
@@ -54,26 +52,23 @@ const accordionGenerator = (el) =>{
 const getData = async (incomeUrl) => {
     const data = await response(incomeUrl)
     const sortData = data.sort((prev, next) => next.rating - prev.rating)
-    sortData.forEach((el)=>{
+    sortData.forEach((el) => {
         accordionGenerator(el)
     })
-}
-getData(url)
 
-accordionElement.forEach((el) => {
-    el.addEventListener("click", () => {
-        console.log(el)
-        arrows.forEach((arrow) => {
-            if (el.ariaExpanded === "true" && arrow === el.parentNode.lastElementChild) {
-                arrow.style.transform = 'rotate(' + 180 + 'deg)'
-            } else {
-                arrow.style.transform = 'rotate(' + 0 + 'deg)'
-            }
+    const arrows = document.querySelectorAll(".arrow")
+    const accordionElement = document.querySelectorAll("#accordion .group-wrapper")
+
+    accordionElement.forEach((el) => {
+        el.addEventListener("click", (e) => {
+            const isOpen = el.children[0].getAttribute("aria-expanded") === "true"
+            el.style.border = `1px solid ${isOpen ? "#636C7C" : "#C6CDDA"}`
+            arrows.forEach((arrow) => {
+                const shouldRotate = isOpen && (arrow === el.childNodes[5].childNodes[2].nextSibling || arrow === el.childNodes[5].childNodes[1])
+                arrow.style.transform = `rotate(${shouldRotate ? 180 : 0}deg)`
+            })
         })
-        if (el.ariaExpanded === "true") {
-            el.parentElement.style.border = '1px solid #636C7C'
-        } else {
-            el.parentElement.style.border = '1px solid #C6CDDA'
-        }
     })
-})
+}
+
+getData(url)
