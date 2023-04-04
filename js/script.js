@@ -13,6 +13,12 @@ const response = async (incomeUrl) => {
 }
 
 const accordionGenerator = (el) =>{
+    let rating = `
+        <span class="hidden 1_xl:flex items-center justify-center ml-auto mr-5 1_xl:mr-10 text-[#283F75] gap-1">
+            <img alt="star" src="img/star.svg">
+            ${el.rating} 
+        </span> 
+    `
     accordion.innerHTML += `
     <div class="group-wrapper first:mt-0 mt-5 relative border border-[#C6CDDA] overflow-hidden flex items-center h-[60px]">
             <input
@@ -26,14 +32,11 @@ const accordionGenerator = (el) =>{
                     type="radio">
             <label class="cursor-pointer absolute z-50 w-full h-full flex items-center pl-7 pr-10 font-bold text-sm md:text-base text-[#283F75]"
                    for="l${el.id}">${el.title}</label>
-            <span class="ml-auto flex">
-                <span class="hidden 1_xl:flex items-center justify-center ml-auto mr-5 1_xl:mr-10 text-[#283F75] gap-1">
-                    <img alt="star" src="img/star.svg">
-                    4
-                </span> 
-            </span>
-            <span class="arrow mr-7 flex items-center justify-center h-2.5 w-2.5  duration-200 rotate-0 peer-checked:180">  
-                <img alt="arrow" src="img/arrow.svg">
+            <span class="ml-auto flex items-center">            
+                ${ (el.rating !== null && el.rating !== 0)  ? rating : ''} 
+                <span class="arrow mr-7 flex items-center justify-center h-2.5 w-2.5  duration-200 rotate-0 peer-checked:180">  
+                    <img alt="arrow" src="img/arrow.svg">
+                </span>
             </span>
     </div>
     <div
@@ -49,15 +52,16 @@ const accordionGenerator = (el) =>{
 }
 
 const getData = async (incomeUrl) => {
-    let data = await response(incomeUrl)
-    data.forEach((el)=>{
+    const data = await response(incomeUrl)
+    const sortData = data.sort((prev, next) => next.rating - prev.rating)
+    sortData.forEach((el)=>{
         accordionGenerator(el)
     })
 }
 getData(url)
 
 accordionElement.forEach((el) => {
-    el.addEventListener("click", (e) => {
+    el.addEventListener("click", () => {
         console.log(el)
         arrows.forEach((arrow) => {
             if (el.ariaExpanded === "true" && arrow === el.parentNode.lastElementChild) {
